@@ -1,0 +1,98 @@
+/* Fichier : src/pages/HomePage.css */
+
+/* On applique une image de fond pleine page */
+.accueil-container {
+  background-image: url('../assets/background.jpg'); /* Chemin vers l'image de fond */
+  background-size: cover; /* L'image couvre toute la page */
+  background-position: center; /* Centrer l'image */
+  height: 100vh; /* Prend toute la hauteur de la fenêtre */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Une superposition semi-transparente pour améliorer la lisibilité du texte */
+.overlay {
+  background-color: rgba(0, 0, 0, 0.6); /* Noir transparent */
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+  animation: fadeIn 2s ease forwards;
+}
+
+/* Animation d'apparition progressive */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Titre principal avec animation personnalisée */
+.accueil-titre {
+  font-size: 3rem;
+  font-weight: bold;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 1s ease;
+}
+
+/* Quand la classe "visible" est ajoutée, on anime */
+.accueil-titre.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Paragraphe descriptif */
+.accueil-description {
+  font-size: 1.2rem;
+  margin: 20px 0;
+}
+
+/* Bouton principal animé */
+.accueil-btn {
+  background-color: #00c9ff; /* Couleur vive */
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Animation d’entrée du bouton */
+.accueil-btn.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Effet au survol du bouton */
+.accueil-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 201, 255, 0.4);
+}
+
+/* Responsive pour mobile */
+@media (max-width: 768px) {
+  .accueil-titre {
+    font-size: 2rem;
+  }
+  .accueil-description {
+    font-size: 1rem;
+  }
+  .accueil-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+

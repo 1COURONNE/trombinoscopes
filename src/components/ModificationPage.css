@@ -1,0 +1,122 @@
+/* Fichier : src/compnents/ModificationPage.css */
+
+/* Image de fond avec effet flou et sombre pour mettre en valeur le formulaire */
+.modification-container {
+  background-image: url('/background.png'); /* Remplace par ton image de fond */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Overlay sombre avec effet de transparence et blur */
+.modification-overlay {
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  padding: 40px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 600px;
+  color: white;
+  animation: fadeIn 1.2s ease;
+}
+
+/* Animation d'apparition douce */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Titre stylisé et animé */
+.modification-titre {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  text-align: center;
+  animation: slideDown 1s ease-in-out;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Zone de sélection du type (radio) */
+.type-select {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 1rem;
+  animation: fadeIn 1.5s ease;
+}
+
+/* Formulaire général */
+.modification-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  animation: fadeIn 2s ease;
+}
+
+/* Champs de saisie et textearea avec effet focus stylisé */
+.modification-form input[type="text"],
+.modification-form textarea,
+.modification-form input[type="file"] {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  outline: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Effet au focus */
+.modification-form input:focus,
+.modification-form textarea:focus {
+  transform: scale(1.02);
+  box-shadow: 0 0 8px #ffffff88;
+}
+
+/* Bouton stylisé avec effet hover */
+.modification-btn {
+  background: linear-gradient(to right, #00b09b, #96c93d);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.4s, transform 0.3s;
+}
+
+.modification-btn:hover {
+  background: linear-gradient(to right, #96c93d, #00b09b);
+  transform: scale(1.05);
+  box-shadow: 0 0 12px #00b09b88;
+}
+
+/* Responsive : ajuste la mise en page pour petits écrans */
+@media (max-width: 600px) {
+  .modification-overlay {
+    padding: 20px;
+  }
+  .modification-titre {
+    font-size: 1.6rem;
+  }
+}
+

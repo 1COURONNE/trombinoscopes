@@ -1,0 +1,81 @@
+/* Fichier : src/components/Navbar.css */
+
+.navbar {
+  background-color: rgba(0, 0, 0, 0.8); /* fond sombre semi-transparent */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(8px); /* effet de flou */
+}
+
+/* Logo */
+.navbar-logo a {
+  color: #00e6ac;
+  font-size: 1.8rem;
+  text-decoration: none;
+  font-weight: bold;
+  animation: logoFade 2s ease-in-out;
+}
+
+@keyframes logoFade {
+  0% { opacity: 0; transform: translateX(-30px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+/* Liens de navigation */
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.navbar-links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Animation de survol */
+.navbar-links li a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #00e6ac;
+  transition: width 0.3s;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}
+
+.navbar-links li a:hover::after {
+  width: 100%;
+}
+
+/* Activer l'onglet actuel */
+.navbar-links li.active a {
+  color: #00e6ac;
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    margin-top: 15px;
+  }
+}
+

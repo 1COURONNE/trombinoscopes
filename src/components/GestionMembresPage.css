@@ -1,0 +1,134 @@
+/* Fichier : src/pages/GestionMembresPage.css */
+
+/* Conteneur principal avec image de fond */
+.gestion-container {
+  background-image: url('../assets/background.jpg'); /* Image de fond */
+  background-size: cover; /* Couvre tout l'écran */
+  background-position: center; /* Centrage de l'image */
+  min-height: 100vh; /* Hauteur minimum écran entier */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Superposition pour fondu et lisibilité */
+.overlay {
+  background-color: rgba(0, 0, 0, 0.7); /* Fond sombre transparent */
+  padding: 40px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 1000px;
+  color: white;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Animation d’apparition douce */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Formulaire des caractéristiques */
+.caracteristiques-form,
+.membre-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 30px;
+  justify-content: center;
+}
+
+/* Styles des champs et des menus */
+.caracteristiques-form input,
+.caracteristiques-form select,
+.membre-form input {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  min-width: 200px;
+}
+
+/* Bouton stylé avec effet au survol */
+button {
+  background-color: #00c9ff;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 201, 255, 0.4);
+}
+
+/* Liste des membres affichés */
+.membres-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Carte pour chaque membre */
+.membre-card {
+  background: rgba(255, 255, 255, 0.1); /* Carte semi-transparente */
+  border-radius: 15px;
+  padding: 20px;
+  width: 220px;
+  text-align: center;
+  backdrop-filter: blur(5px); /* Effet de flou derrière */
+  color: white;
+  animation: slideIn 0.8s ease;
+  transition: transform 0.3s ease;
+}
+
+/* Animation d’entrée des cartes */
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Effet au survol d’une carte */
+.membre-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Image de profil du membre */
+.membre-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* Responsive pour mobile */
+@media (max-width: 768px) {
+  .caracteristiques-form input,
+  .caracteristiques-form select,
+  .membre-form input {
+    min-width: 100%;
+  }
+
+  .membre-card {
+    width: 100%;
+  }
+}
+

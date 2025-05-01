@@ -1,0 +1,128 @@
+/* Fichier : src/components/RecherchePage.css */
+
+/* Conteneur principal avec une image de fond animée */
+.recherche-container {
+  background-image: url('../assets/background.jpg'); /* Image de fond */
+  background-size: cover; /* L'image couvre toute la surface */
+  background-position: center;
+  min-height: 100vh; /* Hauteur minimale : 100% de la fenêtre */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Superposition sombre avec animation d'apparition */
+.recherche-overlay {
+  background-color: rgba(0, 0, 0, 0.7); /* Fond noir semi-transparent */
+  padding: 40px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 800px;
+  color: white;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Titre avec animation légère */
+.recherche-titre {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  animation: pulse 2s infinite;
+}
+
+/* Formulaire de recherche */
+.recherche-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+/* Champs de formulaire */
+.recherche-form select,
+.recherche-form input {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  min-width: 200px;
+}
+
+/* Bouton animé */
+.recherche-btn {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recherche-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(255, 77, 77, 0.4);
+}
+
+/* Zone des résultats */
+.resultats {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Carte résultat avec effet et animation */
+.resultat-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border-radius: 15px;
+  padding: 20px;
+  color: white;
+  animation: slideIn 0.8s ease forwards;
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+/* Animation d’entrée en fondu et glissé */
+@keyframes slideIn {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Animation de pulsation du titre */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+}
+
+/* Animation de fondu général */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+  .recherche-form select,
+  .recherche-form input {
+    min-width: 100%;
+  }
+  .recherche-btn {
+    width: 100%;
+  }
+}
+

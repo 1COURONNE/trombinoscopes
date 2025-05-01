@@ -1,0 +1,185 @@
+/* Fichier : src/components/ErreurPage.css */
+
+/* Conteneur principal centré avec image de fond */
+.erreur-container {
+  background-image: url('/background.png'); /* Remplace par le chemin de ton image */
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Overlay sombre avec du flou */
+.erreur-overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  padding: 50px;
+  border-radius: 20px;
+  color: white;
+  max-width: 600px;
+  animation: fadeIn 1s ease;
+}
+
+/* Animation d'entrée */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Titre de l'erreur */
+.erreur-titre {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  animation: slideDown 0.8s ease-in-out;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Message */
+.erreur-message {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+/* Bouton de retour */
+.erreur-btn {
+  padding: 12px 25px;
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.erreur-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #ff4b2b;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .erreur-overlay {
+    padding: 30px;
+  }
+
+  .erreur-titre {
+    font-size: 1.8rem;
+  }
+
+  .erreur-message {
+    font-size: 1rem;
+  }
+}
+/* Fichier : src/pages/ErreurPage.css */
+
+/* Conteneur principal centré avec image de fond */
+.erreur-container {
+  background-image: url('/background.png'); /* Remplace par le chemin de ton image */
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Overlay sombre avec du flou */
+.erreur-overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  padding: 50px;
+  border-radius: 20px;
+  color: white;
+  max-width: 600px;
+  animation: fadeIn 1s ease;
+}
+
+/* Animation d'entrée */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Titre de l'erreur */
+.erreur-titre {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  animation: slideDown 0.8s ease-in-out;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Message */
+.erreur-message {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+/* Bouton de retour */
+.erreur-btn {
+  padding: 12px 25px;
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.erreur-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #ff4b2b;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .erreur-overlay {
+    padding: 30px;
+  }
+
+  .erreur-titre {
+    font-size: 1.8rem;
+  }
+
+  .erreur-message {
+    font-size: 1rem;
+  }
+}
+

@@ -1,0 +1,94 @@
+/* Fichier : src/components/ConfirmationPage.css */
+
+/* Conteneur principal avec image de fond */
+.confirmation-container {
+  background-image: url('/background.png'); /* Chemin de l'image de fond */
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Overlay sombre et flouté pour lisibilité */
+.confirmation-overlay {
+  background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  padding: 40px;
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+  max-width: 500px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Animation d'entrée douce */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Titre stylisé */
+.confirmation-titre {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  animation: slideUp 0.8s ease-out;
+}
+
+/* Animation du titre */
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Message de confirmation */
+.confirmation-message {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+}
+
+/* Bouton retour */
+.confirmation-btn {
+  background: linear-gradient(to right, #00b09b, #96c93d);
+  border: none;
+  padding: 12px 25px;
+  border-radius: 10px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.confirmation-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px #96c93d;
+}
+
+/* Responsive pour mobiles */
+@media (max-width: 600px) {
+  .confirmation-overlay {
+    padding: 25px;
+  }
+
+  .confirmation-titre {
+    font-size: 1.6rem;
+  }
+
+  .confirmation-message {
+    font-size: 1rem;
+  }
+}
+
