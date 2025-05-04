@@ -2,7 +2,7 @@
 
 /* Conteneur principal avec image de fond */
 .confirmation-container {
-  background-image: url('/background.png'); /* Chemin de l'image de fond */
+  background-image: url('/public/image_acceuil.png'); /* Chemin de l'image de fond */
   background-size: cover;
   background-position: center;
   min-height: 100vh;

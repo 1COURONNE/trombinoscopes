@@ -2,7 +2,7 @@
 
 /* Conteneur principal avec image de fond et centrage du contenu */
 .suppression-container {
-  background-image: url('/background.png'); /* Remplace par le chemin de ton image de fond */
+  background-image: url('/public/image_suppression.png'); /* Remplace par le chemin de ton image de fond */
   background-size: cover;
   background-position: center;
   position: relative;

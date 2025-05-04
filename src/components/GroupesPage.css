@@ -1,130 +1,248 @@
-/* Fichier : src/components/GroupesPage.css */
-
-/* Conteneur principal avec image de fond */
-.groupes-container {
-  background-image: url('../assets/groupes-background.jpg'); /* Assure-toi que ce fichier existe */
-  background-size: cover;
-  background-position: center;
-  min-height: 100vh;
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  color: white;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #ffffff;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
-/* Bloc du formulaire */
-.formulaire {
-  background: rgba(0, 0, 0, 0.6);
-  padding: 30px;
-  border-radius: 20px;
-  max-width: 600px;
-  margin: auto;
-  animation: slideFadeIn 1.2s ease forwards;
-}
-
-.formulaire h2 {
+header {
   text-align: center;
-  margin-bottom: 20px;
-}
-
-.formulaire input,
-.formulaire textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: none;
-  border-radius: 10px;
-}
-
-.formulaire button {
-  background-color: #00d9ff;
+  padding: 40px 20px;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
   color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
-  display: block;
-  margin: auto;
+  font-size: 2.5rem;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  animation: fadeIn 2s ease;
 }
 
-.formulaire button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0, 217, 255, 0.4);
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Liste des groupes */
-.liste-groupes {
-  background: rgba(255, 255, 255, 0.1);
+main {
   padding: 30px;
-  border-radius: 20px;
-  animation: fadeInUp 1.5s ease forwards;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-bloc {
+  background: rgba(0, 0, 0, 0.5);
+  border-left: 6px solid #00d9ff;
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 25px;
+  animation: fadeInUp 1s ease-out;
+  box-shadow: 0 5px 15px rgba(0,217,255,0.2);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scroll-fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+  text-shadow: 0 0 10px #00d9ff;
+  transition: all 0.3s ease;
+}
+
+h2:hover {
+  text-shadow: 0 0 15px #00e5ff, 0 0 30px #00b0cc;
+  transform: scale(1.02);
+}
+
+form {
+  display: grid;
+  gap: 15px;
+}
+
+input[type="text"],
+textarea,
+select {
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+textarea:focus,
+select:focus {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 10px #00d9ff;
+}
+
+button {
+  padding: 12px 20px;
+  background: linear-gradient(45deg, #00d9ff, #0066ff);
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #00d9ff;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.15), transparent 70%);
+  animation: rippleWave 2.5s linear infinite;
+  z-index: 0;
+}
+
+@keyframes rippleWave {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(4);
+    opacity: 0;
+  }
 }
 
 .groupes-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
   margin-top: 20px;
 }
 
-/* Carte individuelle */
-.carte-groupe {
-  background: rgba(0, 0, 0, 0.7);
+.carte-groupe,
+.membre-card {
+  background: rgba(255, 255, 255, 0.08);
   padding: 20px;
   border-radius: 15px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: popIn 0.8s ease forwards;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+  animation: zoomInUp 0.7s ease-out forwards;
 }
 
-.carte-groupe:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-}
-
-.carte-groupe img {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 10px;
-}
-
-.carte-groupe button {
-  margin-top: 10px;
-  background-color: crimson;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-/* Animations clés */
-@keyframes slideFadeIn {
-  0% { opacity: 0; transform: translateY(-30px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes popIn {
-  0% { transform: scale(0.9); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
-}
-
-/* Responsive mobile */
-@media (max-width: 768px) {
-  .formulaire, .liste-groupes {
-    padding: 20px;
+@keyframes zoomInUp {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(60px);
   }
-  .formulaire h2, .liste-groupes h2 {
-    font-size: 1.5rem;
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.carte-groupe:hover,
+.membre-card:hover {
+  transform: perspective(800px) rotateX(6deg) rotateY(-6deg) scale(1.05);
+  animation: glowOutline 1.5s infinite ease-in-out;
+}
+
+@keyframes glowOutline {
+  0% {
+    box-shadow: 0 0 10px #00d9ff, 0 0 20px #00b0cc;
+  }
+  50% {
+    box-shadow: 0 0 20px #00d9ff, 0 0 40px #00b0cc;
+  }
+  100% {
+    box-shadow: 0 0 10px #00d9ff, 0 0 20px #00b0cc;
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  background-color: rgba(0,0,0,0.4);
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .formulaire, .modal-content, .liste-groupes {
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  .formulaire input,
+  .formulaire textarea {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .carte-groupe h3,
+  .membre-card h3 {
+    font-size: 1rem;
+  }
+
+  .groupes-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .actions button {
+    font-size: 0.85rem;
+    padding: 8px 16px;
   }
 }
 

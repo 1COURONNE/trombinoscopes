@@ -21,7 +21,7 @@ export default function HomePage() {
         <p className="accueil-description">
           Gérer vos groupes et membres avec style, animation et efficacité.
         </p>
-        <button className="accueil-btn" onClick={() => navigate('/groupes')}>
+        <button className="accueil-btn" onClick={() => navigate('/membres/1')}>
           Accéder aux groupes
         </button>
       </div>

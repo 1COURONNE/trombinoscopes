@@ -1,27 +1,58 @@
 {
-  "short_name": "tombinoscope",
-  "name": "trombinoscope",
+  "short_name": "Trombino",
+  "name": "Trombinoscope",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "orientation": "portrait",
+  "id": "/trombinoscopes/",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "src": "favicon16.ico",
+      "sizes": "16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "favicon24.ico",
+      "sizes": "24x24",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "favicon32.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "favicon64.ico",
+      "sizes": "64x64",
       "type": "image/x-icon"
     },
     {
       "src": "logo192.png",
+      "sizes": "192x192",
       "type": "image/png",
-      "sizes": "192x192"
+      "purpose": "any maskable"
     },
     {
       "src": "logo512.png",
+      "sizes": "512x512",
       "type": "image/png",
-      "sizes": "512x512"
+      "purpose": "any maskable"
     }
   ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "screenshots": [
+    {
+      "src": "capture1.png",
+      "sizes": "1286x654",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "capture2.png",
+      "sizes": "1286x654",
+      "type": "image/png"
+    }
+  ]
 }
-
 

@@ -1,128 +1,126 @@
-/* Fichier : src/components/RecherchePage.css */
-
-/* Conteneur principal avec une image de fond animée */
-.recherche-container {
-  background-image: url('../assets/background.jpg'); /* Image de fond */
-  background-size: cover; /* L'image couvre toute la surface */
-  background-position: center;
-  min-height: 100vh; /* Hauteur minimale : 100% de la fenêtre */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
-
-/* Superposition sombre avec animation d'apparition */
-.recherche-overlay {
-  background-color: rgba(0, 0, 0, 0.7); /* Fond noir semi-transparent */
+.groupe-details-container {
+  min-height: 100vh;
   padding: 40px;
-  border-radius: 20px;
-  width: 100%;
-  max-width: 800px;
-  color: white;
-  animation: fadeIn 1.5s ease-in-out;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  animation: fadeIn 1s ease;
 }
 
-/* Titre avec animation légère */
-.recherche-titre {
+h2 {
   text-align: center;
   margin-bottom: 30px;
-  font-size: 2.5rem;
-  animation: pulse 2s infinite;
+  font-size: 2rem;
+  animation: slideInDown 1s ease;
 }
 
-/* Formulaire de recherche */
-.recherche-form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  justify-content: center;
-  margin-bottom: 30px;
+/* Formulaires */
+.caracteristiques-form,
+.membre-form {
+  background-color: rgba(255, 255, 255, 0.08);
+  padding: 25px;
+  border-radius: 15px;
+  max-width: 600px;
+  margin: 20px auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  animation: zoomIn 0.8s ease;
 }
 
-/* Champs de formulaire */
-.recherche-form select,
-.recherche-form input {
-  padding: 12px;
+.caracteristiques-form input,
+.caracteristiques-form select,
+.membre-form input {
+  width: 100%;
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  border: none;
   border-radius: 10px;
-  border: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
   font-size: 1rem;
-  min-width: 200px;
 }
 
-/* Bouton animé */
-.recherche-btn {
-  background-color: #ff4d4d;
-  color: white;
+button {
+  display: block;
+  margin: auto;
+  padding: 12px 25px;
   border: none;
-  padding: 12px 24px;
   border-radius: 30px;
+  background-color: #00c6ff;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #0078a0;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00c6ff;
+}
+
+/* Membres */
+.membres-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding-top: 30px;
+  animation: fadeInUp 1s ease;
+}
+
+.membre-card {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  color: #fff;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.recherche-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(255, 77, 77, 0.4);
+.membre-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
 }
 
-/* Zone des résultats */
-.resultats {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.membre-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  border: 3px solid #00c6ff;
 }
 
-/* Carte résultat avec effet et animation */
-.resultat-card {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(5px);
-  border-radius: 15px;
-  padding: 20px;
-  color: white;
-  animation: slideIn 0.8s ease forwards;
-  transform: translateY(20px);
-  opacity: 0;
-}
-
-/* Animation d’entrée en fondu et glissé */
-@keyframes slideIn {
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-/* Animation de pulsation du titre */
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.03);
-  }
-}
-
-/* Animation de fondu général */
+/* Animations */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-/* Responsive mobile */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  .recherche-form select,
-  .recherche-form input {
-    min-width: 100%;
+  .caracteristiques-form,
+  .membre-form {
+    padding: 20px;
   }
-  .recherche-btn {
-    width: 100%;
+
+  h2 {
+    font-size: 1.5rem;
   }
 }
 

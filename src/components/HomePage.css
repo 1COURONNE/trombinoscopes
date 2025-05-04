@@ -2,7 +2,7 @@
 
 /* On applique une image de fond pleine page */
 .accueil-container {
-  background-image: url('../assets/background.jpg'); /* Chemin vers l'image de fond */
+  background-image: url('/public/image_acceuil.png'); /* Chemin vers l'image de fond */
   background-size: cover; /* L'image couvre toute la page */
   background-position: center; /* Centrer l'image */
   height: 100vh; /* Prend toute la hauteur de la fenêtre */

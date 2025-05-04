@@ -17,12 +17,7 @@ function Navbar() {
         <li className={location.pathname === '/' ? 'active' : ''}>
           <Link to="/">Accueil</Link>
         </li>
-        <li className={location.pathname === '/groupes' ? 'active' : ''}>
-          <Link to="/groupes">Groupes</Link>
-        </li>
-        <li className={location.pathname === '/recherche' ? 'active' : ''}>
-          <Link to="/recherche">Recherche</Link>
-        </li>
+       
         <li className={location.pathname.startsWith('/membres') ? 'active' : ''}>
           <Link to="/membres/1">Membres</Link>
         </li>

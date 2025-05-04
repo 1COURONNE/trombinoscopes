@@ -1,134 +1,176 @@
-/* Fichier : src/pages/GestionMembresPage.css */
-
-/* Conteneur principal avec image de fond */
+/* GestionMembresPage.css */
 .gestion-container {
-  background-image: url('../assets/background.jpg'); /* Image de fond */
-  background-size: cover; /* Couvre tout l'écran */
-  background-position: center; /* Centrage de l'image */
-  min-height: 100vh; /* Hauteur minimum écran entier */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+  color: #1f2937;
 }
 
-/* Superposition pour fondu et lisibilité */
-.overlay {
-  background-color: rgba(0, 0, 0, 0.7); /* Fond sombre transparent */
-  padding: 40px;
-  border-radius: 20px;
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.header input {
+  padding: 0.5rem 1rem;
   width: 100%;
-  max-width: 1000px;
-  color: white;
-  animation: fadeIn 1.5s ease-in-out;
+  max-width: 400px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 0 5px rgba(0,0,0,0.05);
 }
 
-/* Animation d’apparition douce */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Formulaire des caractéristiques */
+.groupe-form,
 .caracteristiques-form,
 .membre-form {
+  background: #f8fafc;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  margin-bottom: 2rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
-  margin-bottom: 30px;
-  justify-content: center;
+  gap: 1rem;
+  align-items: center;
 }
 
-/* Styles des champs et des menus */
+.groupe-form input,
 .caracteristiques-form input,
-.caracteristiques-form select,
-.membre-form input {
-  padding: 10px;
-  border-radius: 10px;
-  border: none;
-  font-size: 1rem;
-  min-width: 200px;
+.membre-form input,
+.caracteristiques-form select {
+  flex: 1 1 200px;
+  padding: 0.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
 }
 
-/* Bouton stylé avec effet au survol */
-button {
-  background-color: #00c9ff;
+.groupe-form button,
+.caracteristiques-form button,
+.membre-form button {
+  background-color: #3b82f6;
   color: white;
   border: none;
-  padding: 12px 24px;
-  border-radius: 30px;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.2s ease-in-out;
 }
 
-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0, 201, 255, 0.4);
+.groupe-form button:hover,
+.caracteristiques-form button:hover,
+.membre-form button:hover {
+  background-color: #2563eb;
 }
 
-/* Liste des membres affichés */
-.membres-list {
+.groupes-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
-/* Carte pour chaque membre */
+.groupe-item {
+  background: white;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  cursor: pointer;
+  width: calc(33% - 1rem);
+  transition: transform 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.groupe-item img {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.groupe-item h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.groupe-item p {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.groupe-item.actif {
+  border: 2px solid #3b82f6;
+  background-color: #eff6ff;
+}
+
+.groupe-item button {
+  margin-left: auto;
+  background: transparent;
+  color: #ef4444;
+  border: none;
+  cursor: pointer;
+}
+
+.caracteristiques-section h2 {
+  margin-bottom: 1rem;
+}
+
+.membres-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
 .membre-card {
-  background: rgba(255, 255, 255, 0.1); /* Carte semi-transparente */
-  border-radius: 15px;
-  padding: 20px;
-  width: 220px;
+  background: white;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   text-align: center;
-  backdrop-filter: blur(5px); /* Effet de flou derrière */
-  color: white;
-  animation: slideIn 0.8s ease;
-  transition: transform 0.3s ease;
 }
 
-/* Animation d’entrée des cartes */
-@keyframes slideIn {
-  from {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-/* Effet au survol d’une carte */
-.membre-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
-}
-
-/* Image de profil du membre */
 .membre-card img {
   width: 100%;
-  height: auto;
-  border-radius: 10px;
-  margin-bottom: 10px;
+  max-width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
 }
 
-/* Responsive pour mobile */
+.membre-card p {
+  font-size: 0.9rem;
+  margin: 0.3rem 0;
+}
+
+.membre-card button {
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
-  .caracteristiques-form input,
-  .caracteristiques-form select,
-  .membre-form input {
-    min-width: 100%;
+  .groupe-item {
+    width: 100%;
   }
 
-  .membre-card {
-    width: 100%;
+  .groupe-form,
+  .caracteristiques-form,
+  .membre-form {
+    flex-direction: column;
+    align-items: stretch;
   }
 }
 

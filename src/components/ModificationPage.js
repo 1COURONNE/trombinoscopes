@@ -1,29 +1,53 @@
-// Fichier : src/pages/ModificationPage.js
-// Cette page permet à l'utilisateur de modifier un groupe ou un membre existant avec une interface professionnelle
+
+
+// Fichier : src/components/ModificationPage.js
+// Interface professionnelle, interactive et moderne de modification
 
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import './ModificationPage.css';
 
 function ModificationPage() {
-  // États pour simuler les données existantes d'un membre ou groupe
-  const [type, setType] = useState('groupe'); // soit "groupe" soit "membre"
+  const [type, setType] = useState('groupe');
   const [nom, setNom] = useState('');
   const [description, setDescription] = useState('');
   const [matricule, setMatricule] = useState('');
-  const [photo, setPhoto] = useState(null);
+  //const [photoFile, setPhotoFile] = useState('/public/yes.png');
+  const [photoPreview, setPhotoPreview] = useState(null);
 
-  // Fonction de simulation de modification
   const handleModification = () => {
     alert(`${type === 'groupe' ? 'Groupe' : 'Membre'} modifié avec succès !`);
-    // Plus tard, ici on enverra la modification au backend ou au stockage local
+    // Intégration backend à venir
+  };
+
+  const handlePhotoChange = (e) => {
+    const file = e.target.files[0];
+   // setPhotoFile(file);
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPhotoPreview(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   return (
-    <div className="modification-container">
-      <div className="modification-overlay">
+    <motion.div
+      className="modification-container"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.8 }}
+    >
+      <motion.div
+        className="modification-overlay"
+        initial={{ y: 30, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6 }}
+      >
         <h1 className="modification-titre">✏️ Modifier un {type}</h1>
 
-        {/* Choix entre groupe ou membre */}
         <div className="type-select">
           <label>
             <input
@@ -43,8 +67,7 @@ function ModificationPage() {
           </label>
         </div>
 
-        {/* Formulaire de modification */}
-        <div className="modification-form">
+        <motion.div className="modification-form" whileHover={{ scale: 1.02 }}>
           <input
             type="text"
             placeholder="Nom"
@@ -67,19 +90,34 @@ function ModificationPage() {
             />
           )}
 
-          {/* Import de l'image (photo de profil ou logo) */}
           <input
             type="file"
             accept="image/*"
-            onChange={(e) => setPhoto(e.target.files[0])}
+            onChange={handlePhotoChange}
           />
 
-          <button className="modification-btn" onClick={handleModification}>
+          {photoPreview && (
+            <motion.img
+              src={photoPreview}
+              alt="Prévisualisation"
+              className="photo-preview"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            />
+          )}
+
+          <motion.button
+            className="modification-btn"
+            onClick={handleModification}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
             Sauvegarder les modifications
-          </button>
-        </div>
-      </div>
-    </div>
+          </motion.button>
+        </motion.div>
+      </motion.div>
+    </motion.div>
   );
 }
 

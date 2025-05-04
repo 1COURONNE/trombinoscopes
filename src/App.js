@@ -3,27 +3,27 @@
 
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
+// import { BrowserRouter } from 'react-router-dom'; 
 import Navbar from './components/Navbar'; // ✅ importation du menu global
 import Footer from './components/Footer'; // ✅ importer le footer
 // Pages
-import Accueil from './pages/Accueil';
-import GroupesPage from './pages/GroupesPage';
-import MembresPage from './pages/MembresPage';
-import RecherchePage from './pages/RecherchePage';
-import ModificationPage from './pages/ModificationPage';
-import ConfirmationPage from './pages/ConfirmationPage';
-import ErreurPage from './pages/ErreurPage';
+import HomePage from './components/HomePage';
+import GroupesPage from './components/GroupesPage';
+import GestionMembresPage from './components/GestionMembresPage';
+import GroupeDetailsPage from './components/GroupeDetailsPage';
+import ModificationPage from './components/ModificationPage';
+import ConfirmationPage from './components/ConfirmationPage';
+import ErreurPage from './components/ErreurPage';
 
 function App() {
   return (
     <Router>
       <Navbar /> {/* ✅ affichage du menu global sur toutes les pages */}
       <Routes>
-        <Route path="/" element={<Accueil />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/groupes" element={<GroupesPage />} />
-        <Route path="/membres/:groupeId" element={<MembresPage />} />
-        <Route path="/recherche" element={<RecherchePage />} />
+        <Route path="/membres/:groupeId" element={<GestionMembresPage />} />
+        <Route path="/GroupeDetailsPage" element={<GroupeDetailsPage />} />
         <Route path="/modification/:type/:id" element={<ModificationPage />} />
         <Route path="/confirmation" element={<ConfirmationPage />} />
         <Route path="*" element={<ErreurPage />} />
