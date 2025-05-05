@@ -33,13 +33,13 @@ const GestionMembresPage = () => {
     if (groupeActuel) {
       localStorage.setItem(`caracteristiques-${groupeActuel.id}`, JSON.stringify(caracteristiques));
     }
-  }, [caracteristiques]);
+  }, [caracteristiques, groupeActuel]);
 
   useEffect(() => {
     if (groupeActuel) {
       localStorage.setItem(`membres-${groupeActuel.id}`, JSON.stringify(membres));
     }
-  }, [membres]);
+  }, [membres, groupeActuel]);
 
   const ajouterGroupe = () => {
     if (!nouveauNomGroupe.trim() || !nouvelleDescGroupe.trim() || !nouveauLogoGroupe) return;
@@ -56,13 +56,13 @@ const GestionMembresPage = () => {
     setNouvelleDescGroupe('');
     setNouveauLogoGroupe(null);
   };
-
+/*
   const modifierGroupe = (groupeId, updatedData) => {
     const updatedGroupes = groupes.map(g => g.id === groupeId ? { ...g, ...updatedData } : g);
     setGroupes(updatedGroupes);
     localStorage.setItem('groupes', JSON.stringify(updatedGroupes));
   };
-
+*/
   const supprimerGroupe = (groupeId) => {
     if (window.confirm("Supprimer ce groupe ?")) {
       const updated = groupes.filter(g => g.id !== groupeId);
@@ -94,12 +94,12 @@ const GestionMembresPage = () => {
     setMembres([...membres, nouveau]);
     setMembreActuel({});
   };
-
+/*
   const modifierMembre = (id, data) => {
     const updated = membres.map(m => m.id === id ? { ...m, ...data } : m);
     setMembres(updated);
   };
-
+*/
   const supprimerMembre = (id) => {
     if (window.confirm("Supprimer ce membre ?")) {
       const updated = membres.filter(m => m.id !== id);

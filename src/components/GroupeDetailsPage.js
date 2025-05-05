@@ -20,11 +20,11 @@ const GroupeDetailsPage = () => {
 
   useEffect(() => {
     localStorage.setItem(`caracteristiques-${id}`, JSON.stringify(caracteristiques));
-  }, [caracteristiques]);
+  }, [caracteristiques, id]);
 
   useEffect(() => {
     localStorage.setItem(`membres-${id}`, JSON.stringify(membres));
-  }, [membres]);
+  }, [membres, id]);
 
   const ajouterCaracteristique = () => {
     if (!nouvelleCarac.nom.trim()) return;
